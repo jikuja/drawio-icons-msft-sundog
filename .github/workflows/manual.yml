@@ -7,7 +7,7 @@ jobs:
         steps:
             - name: Check out repository code
               uses: actions/checkout@v4
-            - run: wget --no-verbose -r --no-parent -A 'b*.svg' -l1 -nH --cut-dirs=3 https://azure.microsoft.com/en-gb/patterns/styles/glyphs-icons/
+            - run: wget --no-verbose -r --no-parent -A '*.svg' -l1 -nH --cut-dirs=3 https://azure.microsoft.com/en-gb/patterns/styles/glyphs-icons/
               continue-on-error: true
             - uses: actions/setup-python@v5
               with:
