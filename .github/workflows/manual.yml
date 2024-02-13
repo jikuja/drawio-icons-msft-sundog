@@ -1,0 +1,16 @@
+name: manual
+on: []
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Check out repository code
+          uses: actions/checkout@v4
+        - run: wget -r --no-parent -A .svg -l1 -nH --cut-dirs=3 https://azure.microsoft.com/en-gb/patterns/styles/glyphs-icons/
+        - uses: actions/setup-python@v5
+          with:
+            python-version: '3.9'
+            cache: 'pip' # caching pip dependencies
+        - run: pip install git+https://github.com/jikuja/svg2drawiolib.git#egg=svg2drawiolib
+        - run: svg2drawiolib 'glyphs-icons/*.svg'
+        - run: ls -l
