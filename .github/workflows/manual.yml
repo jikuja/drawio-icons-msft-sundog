@@ -13,7 +13,7 @@ jobs:
               with:
                 python-version: '3.11'
             - run: pip install git+https://github.com/jikuja/svg2drawiolib.git#egg=svg2drawiolib
-            - run: svg2drawiolib --output 'MSFT-sundog.xml' --postfix ' sd' 'glyphs-icons/*.svg'
+            - run: svg2drawiolib --output 'MSFT-sundog.xml' --postfix ' sd' glyphs-icons/*.svg
             - run: ls -l
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v6
