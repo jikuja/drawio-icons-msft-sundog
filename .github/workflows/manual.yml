@@ -21,7 +21,9 @@ jobs:
                 tree
                 uv run main.py
                 tree
+            - run: cp MSFT-sundog.xml MSFT-sundog.xml.bak
             - run: uv run svg2drawiolib --output 'MSFT-sundog.xml' --postfix ' sd' extracted_svgs/*.svg
+            - run: uv run diff.py MSFT-sundog.xml.bak MSFT-sundog.xml
             - run: ls -l
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v6
