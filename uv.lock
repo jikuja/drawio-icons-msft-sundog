@@ -55,6 +55,7 @@ dependencies = [
     { name = "lxml" },
     { name = "requests" },
     { name = "svg2drawiolib" },
+    { name = "xmldiffs" },
 ]
 
 [package.metadata]
@@ -63,6 +64,7 @@ requires-dist = [
     { name = "lxml", specifier = ">=5.3.2" },
     { name = "requests", specifier = ">=2.32.3" },
     { name = "svg2drawiolib", git = "https://github.com/jikuja/svg2drawiolib.git" },
+    { name = "xmldiffs", git = "https://github.com/joh/xmldiffs" },
 ]
 
 [[package]]
@@ -145,3 +147,8 @@ sdist = { url = "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e
 wheels = [
     { url = "https://files.pythonhosted.org/packages/6b/11/cc635220681e93a0183390e26485430ca2c7b5f9d33b15c74c2861cb8091/urllib3-2.4.0-py3-none-any.whl", hash = "sha256:4e16665048960a0900c702d4a66415956a584919c03361cac9f1df5c5dd7e813", size = 128680 },
 ]
+
+[[package]]
+name = "xmldiffs"
+version = "0.1.0"
+source = { git = "https://github.com/joh/xmldiffs#55e997e38dc027f6bfcfcadad84eee0a925138da" }
