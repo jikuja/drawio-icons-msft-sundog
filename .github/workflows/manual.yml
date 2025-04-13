@@ -7,8 +7,8 @@ jobs:
         steps:
             - name: Check out repository code
               uses: actions/checkout@v4
-            - run: wget --no-verbose -r --no-parent -A '*.svg' -l1 -nH --cut-dirs=3 https://web.archive.org/web/20240324020531/https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/
-              continue-on-error: true
+            #- run: wget --no-verbose -r --no-parent -A '*.svg' -l1 -nH --cut-dirs=3 https://web.archive.org/web/20240324020531/https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/
+            #  continue-on-error: true
             - name: Install uv
               uses: astral-sh/setup-uv@v5
             - name: Set up Python
