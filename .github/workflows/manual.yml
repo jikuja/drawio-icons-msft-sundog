@@ -17,6 +17,10 @@ jobs:
                 python-version-file: "pyproject.toml"
             - name: Install the project
               run: uv sync --all-extras --dev
+            - run: |
+                tree
+                uv run main.py
+                tree
             - run: uv run svg2drawiolib --output 'MSFT-sundog.xml' --postfix ' sd' extracted_svgs/*.svg
             - run: ls -l
             - name: Create Pull Request
