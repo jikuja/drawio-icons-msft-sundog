@@ -1,0 +1,15 @@
+[project]
+name = "drawio-icons-msft-sundog"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.13.3",
+    "lxml>=5.3.2",
+    "requests>=2.32.3",
+    "svg2drawiolib",
+]
+
+[tool.uv.sources]
+svg2drawiolib = { git = "https://github.com/jikuja/svg2drawiolib.git" }

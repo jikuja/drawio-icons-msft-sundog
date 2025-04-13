@@ -9,11 +9,15 @@ jobs:
               uses: actions/checkout@v4
             - run: wget --no-verbose -r --no-parent -A '*.svg' -l1 -nH --cut-dirs=3 https://web.archive.org/web/20240324020531/https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/
               continue-on-error: true
-            - uses: actions/setup-python@v5
+            - name: Install uv
+              uses: astral-sh/setup-uv@v5
+            - name: Set up Python
+              uses: actions/setup-python@v5
               with:
-                python-version: '3.11'
-            - run: pip install git+https://github.com/jikuja/svg2drawiolib.git#egg=svg2drawiolib
-            - run: svg2drawiolib --output 'MSFT-sundog.xml' --postfix ' sd' glyphs-icons/*.svg
+                python-version-file: "pyproject.toml"
+            - name: Install the project
+              run: uv sync --all-extras --dev
+            - run: uv run svg2drawiolib --output 'MSFT-sundog.xml' --postfix ' sd' extracted_svgs/*.svg
             - run: ls -l
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v6
